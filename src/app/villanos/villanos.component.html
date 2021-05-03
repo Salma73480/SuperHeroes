@@ -1,0 +1,38 @@
+<div class="container">
+<h2 class="title">MIS VILLANOS</h2>
+<div class="row">
+<div class="col">
+<ul class="villanos">
+<li *ngFor="let villanoss of villanos" [class.selectrd]="villanoss === selectedVillano" 
+(click)="onSelect(villanoss)">
+<span class="badge"> {{villanoss.id}}</span>{{villanoss.name}} </li>
+</ul>
+</div>
+<div class="col">
+<div *ngIf="selectedVillano">
+<h2>{{selectedVillano.name | uppercase}} : </h2>
+<h5><b>
+<div><span>id: </span> <span class="badge badge-primary">{{selectedVillano.id}} 
+
+</span></div>
+<div>
+<b> <label for="villanoss-name">Nombre: </label>
+</b>
+<input type="text" [(ngModel)]="selectedVillano.name" placeholder="SuperPower" class="form-control">
+</div>
+<div>
+<label for="villanoss-MaldadNivel">Nivel de Fuerza: </label>
+<input type="text" [(ngModel)]="selectedVillano.MaldadNivel" placeholder="SuperPower" class="form-control" disabled>
+<button (click)="onPlus(selectedVillano)">Mas Poder</button>
+</div>
+
+<div>
+<label for="villanoss-SuperPower">Poder del villano: </label>
+<input type="text" [(ngModel)]="selectedVillano.SuperPower" placeholder="SuperPower" class="form-control">
+</div>
+</b>
+</h5>
+</div>
+</div>
+</div>
+</div>
